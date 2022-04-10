@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 load_dotenv(".env")
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
 SECRET_KEY = os.getenv("SECRET_KEY")
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 db = SQLAlchemy()
 
