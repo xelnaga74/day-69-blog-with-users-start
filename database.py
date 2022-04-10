@@ -10,6 +10,8 @@ load_dotenv(".env")
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
 SECRET_KEY = os.getenv("SECRET_KEY")
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///blog.db")
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
 db = SQLAlchemy()
 
