@@ -152,7 +152,7 @@ def contact():
     return render_template("contact.html")
 
 
-@app.route("/new-post")
+@app.route("/new-post", methods=["GET", "POST"])
 @admin_only
 def add_new_post():
     form = CreatePostForm()
@@ -171,7 +171,7 @@ def add_new_post():
     return render_template("make-post.html", form=form)
 
 
-@app.route("/edit-post_to_edit/<int:post_id>")
+@app.route("/edit-post_to_edit/<int:post_id>", methods=["GET", "POST"])
 @admin_only
 def edit_post(post_id):
     post_to_edit = BlogPost.query.get(post_id)
