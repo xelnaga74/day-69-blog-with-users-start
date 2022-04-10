@@ -3,7 +3,12 @@ from werkzeug.security import generate_password_hash
 from sqlalchemy.orm import relationship
 from flask_login import UserMixin
 from typing import Union
+import os
+from dotenv import load_dotenv
 
+load_dotenv(".env")
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD")
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 db = SQLAlchemy()
 
@@ -57,7 +62,7 @@ def read_post(post_id: int) -> BlogPost:
 first_user = User(
     name="xelnaga74",
     email="xelnaga74@gmail.com",
-    password=generate_password_hash(password="qwerty", method="pbkdf2:sha256", salt_length=8)
+    password=generate_password_hash(password=ADMIN_PASSWORD, method="pbkdf2:sha256", salt_length=8)
 )
 first_post = BlogPost(
     title="The Life of Cactus",
