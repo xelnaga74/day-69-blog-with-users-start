@@ -20,9 +20,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 app.app_context().push()
-# db.create_all()
-# create_record(first_user)
-# create_record(first_post)
+db.create_all()
+create_record(first_user)
+create_record(first_post)
 
 
 login_manager = LoginManager()
